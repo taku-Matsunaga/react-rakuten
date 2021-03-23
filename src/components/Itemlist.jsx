@@ -1,8 +1,45 @@
 import React, { useState, useEffect } from "react";
 import NumberFormat from 'react-number-format';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
+
+const useStyles = makeStyles({
+  root: {
+    maxWidth: 345,
+    margin: 10,
+  },
+  media: {
+    height: 140,
+    backgroundSize: 'contain',
+  },
+  hidden: {
+    overflow: 'hidden',
+    height: 100,
+  },
+  price: {
+    textAlign: 'center',
+    color: 'orangered',
+    fontWeight: 'bold',
+    fontSize: 20,
+    padding: 10,
+    margin: 0,
+  },
+  ul: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'spaceEvenly',
+  }
+});
 
 function Itemlist(props) {
   const [itemData, setItemData] = useState(null);
+  const classes = useStyles();
+
   useEffect(() => {
     const result = props
       .getData?.(props.language)
@@ -10,24 +47,41 @@ function Itemlist(props) {
   }, [props]);
   return (
     <div>
-      <ul>
+      <ul  className={classes.ul}>
         {
           itemData === null ? (
             <p>now loading...</p>
           ) : (
             itemData.data.Items.map((x, index) => (
-              <li key={x.Item.itemCode}>
-                <p>{x.Item.itemName}</p>
-                <img src={x.Item.mediumImageUrls[0].imageUrl} alt=""/>
-                <p><NumberFormat value={x.Item.itemPrice} displayType={'text'} thousandSeparator={true} prefix={'¥'} /></p>
-                <a href={x.Item.itemUrl}>LINK</a>
-                </li>
+              <Card className={classes.root}>
+                <CardActionArea
+                  href={x.Item.itemUrl}
+                >
+                  <CardMedia
+                    className={classes.media}
+                    image={x.Item.mediumImageUrls[0].imageUrl}
+                    title={x.Item.itemName}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {x.Item.itemName}
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary" component="p"
+                     className={classes.hidden}>
+                      {x.Item.itemCaption}
+                    </Typography>
+                  </CardContent>
+                  <p className={classes.price}>
+                  <NumberFormat value={x.Item.itemPrice} displayType={'text'} thousandSeparator={true} prefix={'¥'}
+                   />
+                  </p>
+                </CardActionArea>
+              </Card>
             ))
-            // console.log(itemData.data.Items[0])
           )
         }
       </ul>
-    </div>
+    </div >
   );
 }
 

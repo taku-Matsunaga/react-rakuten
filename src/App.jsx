@@ -2,6 +2,21 @@ import React from "react";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import axios from 'axios';
 import Itemlist from "./components/Itemlist";
+import Button from '@material-ui/core/Button';
+
+const styles = {
+  listBtn: {
+    display: 'flex',
+    listStyle: 'none',
+  },
+  padding: {
+    padding: '10px',
+  },
+  body: {
+    background: '#ddd',
+    flex: 1,
+  }
+};
 
 const getDataFromAPI = async keyword => {
   const requestUrl = 'https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?';
@@ -12,21 +27,42 @@ const getDataFromAPI = async keyword => {
 }
 
 const App = () => {
-  const languages = ["React", "Vue", "Angular"]; // 追加
+  const languages = ["React", "Vue", "Angular"]; 
   return (
     <BrowserRouter>
       <div>
-        <h1>react app</h1>
+        <h1>GET Rakuten API</h1>
 
-        <ul>
-          <li>
-            <Link to="/">React</Link>
+        <ul style={styles.listBtn}>
+          <li style={styles.padding}>
+          <Button
+          variant="contained"
+          color="primary"
+          component={Link}
+          to="/"
+          >
+            React
+          </Button>
           </li>
-          <li>
-            <Link to="/vue">Vue</Link>
+          <li style={styles.padding}>
+          <Button
+          variant="contained"
+          color="primary"
+          component={Link}
+          to="/vue"
+          >
+            Vue
+          </Button>
           </li>
-          <li>
-            <Link to="/angular">Angular</Link>
+          <li style={styles.padding}>
+          <Button
+          variant="contained"
+          color="primary"
+          component={Link}
+          to="/angular"
+          >
+            Angular
+          </Button>
           </li>
         </ul>
 
@@ -38,7 +74,7 @@ const App = () => {
           render={(props) => (
             <Itemlist
               language={languages[0]}
-              getData={(keyword) => getDataFromAPI(keyword)} // getDataという名前で関数を渡す
+              getData={(keyword) => getDataFromAPI(keyword)}
             />
           )}
         />
@@ -48,7 +84,7 @@ const App = () => {
           render={(props) => (
             <Itemlist
               language={languages[1]}
-              getData={(keyword) => getDataFromAPI(keyword)} // getDataという名前で関数を渡す
+              getData={(keyword) => getDataFromAPI(keyword)}
             />
           )}
         />
@@ -58,7 +94,7 @@ const App = () => {
           render={(props) => (
             <Itemlist
               language={languages[2]}
-              getData={(keyword) => getDataFromAPI(keyword)} // getDataという名前で関数を渡す
+              getData={(keyword) => getDataFromAPI(keyword)}
             />
           )}
         />
