@@ -9,8 +9,8 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
-    margin: 10,
+    maxWidth: 300,
+    height: '100%',
   },
   media: {
     height: 140,
@@ -31,7 +31,11 @@ const useStyles = makeStyles({
   ul: {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'spaceEvenly',
+    justifyContent: 'space-evenly',
+    listStyle: 'none',
+  },
+  li: {
+    padding: 10,
   }
 });
 
@@ -46,13 +50,15 @@ function Itemlist(props) {
   }, [props]);
   return (
     <div>
-      <ul  className={classes.ul}>
+      <ul className={classes.ul}>
         {
           itemData === null ? (
             <p>now loading...</p>
           ) : (
             itemData.data.Items.map((x, index) => (
-              <li key={index}>
+              <li key={index}
+              className={classes.li}
+              >
               <Card className={classes.root}>
                 <CardActionArea
                   href={x.Item.itemUrl}
