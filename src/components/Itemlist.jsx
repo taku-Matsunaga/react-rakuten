@@ -3,7 +3,6 @@ import NumberFormat from 'react-number-format';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
@@ -53,6 +52,7 @@ function Itemlist(props) {
             <p>now loading...</p>
           ) : (
             itemData.data.Items.map((x, index) => (
+              <li key={index}>
               <Card className={classes.root}>
                 <CardActionArea
                   href={x.Item.itemUrl}
@@ -77,6 +77,7 @@ function Itemlist(props) {
                   </p>
                 </CardActionArea>
               </Card>
+              </li>
             ))
           )
         }
