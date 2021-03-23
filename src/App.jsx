@@ -20,7 +20,7 @@ const styles = {
 
 const getDataFromAPI = async keyword => {
   const requestUrl = 'https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?';
-  const appID = '1098158236145947168';
+  const appID = YOUR_RAKUTEN_API_APP_ID
   const result = await axios.get(`${requestUrl}applicationId=${appID}&keyword=${keyword}`);
   console.log(result);
   return result;
