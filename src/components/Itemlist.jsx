@@ -44,10 +44,10 @@ function Itemlist(props) {
   const classes = useStyles();
 
   useEffect(() => {
-    const result = props
+    const result = props // eslint-disable-line
       .getData?.(props.language)
       .then((response) => setItemData(response));
-  }, [props]);
+  }, [props]); 
   return (
     <div>
       <ul className={classes.ul}>
