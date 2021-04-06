@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/react-rakuten/static/js/main.ed002bb4.chunk.js",
+    "main.js.map": "/react-rakuten/static/js/main.ed002bb4.chunk.js.map",
+    "runtime-main.js": "/react-rakuten/static/js/runtime-main.9c78febd.js",
+    "runtime-main.js.map": "/react-rakuten/static/js/runtime-main.9c78febd.js.map",
+    "static/js/2.6fe30b77.chunk.js": "/react-rakuten/static/js/2.6fe30b77.chunk.js",
+    "static/js/2.6fe30b77.chunk.js.map": "/react-rakuten/static/js/2.6fe30b77.chunk.js.map",
+    "static/js/3.bc5f2e43.chunk.js": "/react-rakuten/static/js/3.bc5f2e43.chunk.js",
+    "static/js/3.bc5f2e43.chunk.js.map": "/react-rakuten/static/js/3.bc5f2e43.chunk.js.map",
+    "index.html": "/react-rakuten/index.html",
+    "static/js/2.6fe30b77.chunk.js.LICENSE.txt": "/react-rakuten/static/js/2.6fe30b77.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9c78febd.js",
+    "static/js/2.6fe30b77.chunk.js",
+    "static/js/main.ed002bb4.chunk.js"
+  ]
+}
